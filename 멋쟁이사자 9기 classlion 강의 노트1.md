@@ -342,7 +342,7 @@ value="숫자" : 해당하는 리스트 아이템의 번호를 지정
 - **button** : input태그의 버튼타입과 동일하게 버튼을 생선
 
   ```html
-<button type="submit">회원가입</button>
+  <button type="submit">회원가입</button>
   ```
   
   ```html
@@ -350,3 +350,325 @@ value="숫자" : 해당하는 리스트 아이템의 번호를 지정
   ```
   
   위 두개 같음
+
+
+
+### 8. CSS기초
+
+1. CSS기초 문법
+
+   - **선택자(Selector)** : 스타일을 적용하고자 하는 html요소를 선택하는 역할
+
+   - **속성(Property)** : 지정할 스타일의 속성 이름에 해당
+
+     ​							  속성: 값;이 한 단위
+
+     ​							  ;(세미 콜론)을 이용하여 구분
+
+   - **값(Value)**  : 키워드나 특정 단위를 이용하여 원하는 스타일을 적용 속성(Property)와 쌍을 이룸
+
+   
+
+   - **선언 블록(Declaration block)** : 중괄호 안에 있는 한 블록. {} --> 구분
+   - **선언(Declaration)** : 속성과 값 한 쌍을 가르킴 ;세미콜론 필수
+
+   
+
+   2.HTML에 CSS를 적용하는 방법
+
+   - **Link style** : HTML에 외부에 있는 CSS파일을 불러옴
+   - **Embedding style** : HTML의 head에 style를 이용하여 CSS를 작성
+   - **Inline style** : HTML요소에 직접 style 속성(Attributes)을 이용하여 CSS를 작성 	
+
+   
+
+### 9.선택자
+
+**선택자(Selector)** : 스타일을 적용하고자 하는 html요소를 선택하는 역할 
+
+-> ex) h1, p, span, div, a 등등 **일반적인 태그** 사용가능
+
+```css
+h1,p{
+	color: red;
+}
+```
+
+여러 개의 선택자를, 를 이용하여 스타일을 한번에 지정 가능
+
+
+
+#### 단순 선택자 (타입, 클래스, 아이디, 전체, 속성)
+
+- **타입 선택자(Type Selector)** : 해당 **태그**를 가지는 **모든** 요소에 스타일을 적용
+
+- **아이디 선택자(Id Selector)** : Id로 스타일을 적용 해당 Id 하나에 적용(Id는 단 하나)
+  - #main { color: red; }
+  - 아이디(Id) : HTML 문서 내에서 동일한 아이디는 존재할 수 없음 다른 요소와 구분되는 점을 만들어줌
+- **클래스 선택자(Class Selector)** : 클래스 이름으로 스타일을 적용 **같은 클래스 이름**이면 **모두** 적용
+  - .main{color : red;}
+  - 클래스(Class) : 비슷한 특징을 갖는 요소를 지정하여 묶을 수 있음 여러 번 사용이 가능
+- **전체 선택자(Universla Selector)** : **모든 요소**에 스타일을 적용 모든 요소에 적용하기 때문에 속도 저하 가능성이 있음
+  - *{color : red;}
+- **속성 선택자(Attribute Selector)** : 특정 속성을 소유하는 모든 요소에 스타일을 적용
+  - a[target="_blank"] {color : red;}
+
+#### 복합 선택자
+
+- **자식 선택자(Child Selector)** : **선택자A**의 모든 자식 중 **선택자B**와 일치하는 요소 선택
+
+  - 선택자A > 선택자B { color: red; }
+  - article > p { color : red; }
+
+- **후손 선택자(Descentdant Selector)** : **선택자A**의 모든 후손 중 **선택자B**와 일치하는 요소 선택
+
+  - 선택자A 선택자B { color:  blue; }
+  - article p { color : blue; } 
+
+- **pseudo 클래스** : 요소의 특별한 상태를 지정할 때 씀
+
+  - 선택자:pseudo-class {
+
+    ​	속성: 속성값;
+
+    }
+    
+    - :link :방문하지 않은 링크일 경우
+    - :visited :방문한 링크일 경우
+    - :hover :요소에 마우스가 올라와 있을 경우 
+    
+    
+
+### 10.값과 단위
+
+#### 		숫자값과 백분율
+
+- 1px = 1/96 in (**절대길이**)
+
+- em rem -> **상대적인 길이**
+- **em** : 현재 스타일이 지정된 요소의 font-size기준
+- **rem** : 최상위 요소의 font-size기준 (**rem쓰는 것 권장**)
+- 1em(1rem)의 크기 = 기준 font-size *1em(1rem)
+
+​			ex) 10em(rem) = 16px * 10 = 160px
+
+- **%(퍼센트)** : 상대 길이, 보통 이미지나 레이아웃의 너비나 높이를 지정할 때 씀
+
+  
+
+  #### 색상
+  
+  - **hex code** 
+  - **rgb**
+  - **hsl**
+  
+  
+
+### 11.텍스트와 관련된 프로퍼티
+
+#### 		폰트와 관련된 프로퍼티
+
+- font-size, font-family, font-style, font-weight
+- **font-family** : 'Cute Font', Arial, cursive;
+
+- **font-style** : normal(기본 값), italic(디자인된 폰트에 적용), oblique(기울임 글꼴)
+
+- **font-weight** : 100, 200, normal(400), bold(700) 등등
+
+- font : oblique 900 35px; -> 한 번에 적용 가능, 띄어쓰기로 구분
+
+  
+
+  #### 텍스트 정렬관 관련된 속성
+
+- **text-align** : 텍스트를 좌,우,중앙 정렬함
+
+- **line-height** : 문장 사이의 간격을 조정함
+
+- **letter-spacing** : 글자와 글자 사이의 간격을 조정함, 자간
+
+- **text-indent** : 문단의 시작부에 들여쓰기를 함
+
+  
+
+### 12.박스
+
+#### 		박스 모델 개념
+
+- HTML의 **모든 요소**는 **상자(Box)형태**를 가진다.
+
+<img src="C:\Users\82108\Desktop\멋쟁이사자\화면 캡처 2021-01-23 031036.jpg" style="zoom:50%;" />
+
+#### 	padding과 margin
+
+- 마진은 함께 공존하지 않음 -> 마진 상쇄(Margin Collapse)
+- box-sizing : content-box; -> 기본 박스 사이즈
+- box-sizing : border-box;  ->border기준 박스 사이즈
+
+
+
+### 13.위치와 관련된 프로퍼티[1]
+
+#### 		display
+
+- **display** : 요소가 보여지는 방식을 지정
+
+- **display : block;**(width 100%) : div, h1~6, p, header, section
+
+  *width, height, margin, padding 가능
+
+- **display : inline;** : a, span, img
+
+  *width, height, margin-top, margin-bottom 불가능
+
+- **display : inline-block;** : width, height, margin-top, margin-bottom 가능
+
+  
+
+  #### position
+
+- **static** : 기본값, 좌표 프로퍼티를 쓸 수 없음
+
+- **relative** : 상대위치, 기본 위치를 기준으로 좌표를 사용함
+
+- **absolute** : 부모나 조상 중 relative, absolute, fixed가 선언된 곳을 기준으로 좌표 프로퍼티 적용
+
+- **fixed** : 보이는 화면을 기준으로 좌표 프로퍼티를 이용하여 위치를 고정
+
+- **z-index** : 숫자값이 클수록 전면에 출현
+
+
+
+### 14.위치와 관련된 프로퍼티[2]
+
+#### 		flexbox
+
+- **flexbox** : 특별한 계산 없이 정렬(가로/세로 정해진 방향으로 정렬)
+
+- flex container(부모 요소 <-display : flex 추가)
+
+  #### 부모요소
+
+- **flex-direction** : flex 컨테이너 안의 item들의 방향을 정함
+
+- **flex-wrap** : flex 아이템이 flex 컨테이너를 벗어 났을 때 줄을 바꾸는 속성
+
+- **justify-content** : flex-direction으로 정해진 방향을 기준으로 수평으로 item을 정렬하는 방법을 정함
+
+- **aling-items** : flex-direction으로 정해진 방향을 기준으로 수직으로 item을 정렬하는 방법을 정함
+
+- **aling-content** : flex-direction으로 정해진 방향을 기준으로 수직으로 **여러 줄인** item을 정렬하는 방법을 정함
+
+  #### 자식요소
+
+- **flex-grow** : flex 아이템의 확장과 관련된 속성, 기본 0
+
+- **flex-shrink **: flex 아이템의 축소와 관련된 속성, 기본 1
+
+- **flex-basis** : flex 아이템의 기본 크기를 결정함, 기본 auto
+
+- **flex** : flex-grow, flex-shrink, flex-basis의 축약형
+
+  
+
+### 15.상속과 우선순위
+
+#### 	상속
+
+​		모든 CSS 프로퍼티가 상속되는 것은 아님
+
+​		https://www.w3.org/TR/CSS21/propidx
+
+​		margin: inherit; -> 상속가능
+
+
+
+#### 		우선순위
+
+- **cascading** : 적용 우선 순위
+  - 중요도 : 어디에 선언되었는지에 따라서 우선순위 달라짐
+    1. head태그 내의 style
+    2. head태그 내의 style태그 내의 @import문
+    3. link태그로 연결된 css
+    4. link태그로 연결된 css내의 @import
+    5. 문브라우저 디폴트 스타일시트
+  - 명시도
+    1. !important
+    2. 인라인 스타일
+    3. 아이디 선택자
+    4. 클래스, 속성, 가상 클래스 선택자
+    5. 태그 선택자
+    6. 전체 선택자
+    7. 상속
+
+
+
+### 16. Bootstrap
+
+​	
+
+## Django Settings
+
+### 1. 오리엔테이션
+
+1. 개발은 혼자 하지 않는다.
+2. 보안
+3. 개발자는 반드시 실수를 한다.
+
+
+
+### 2. 터미널 사용법
+
+- **터미널이란?** CLI를 GUI환경에서 사용할 수 있게 하는 것
+
+- **CLI** : Command Line Interface
+
+- **GUI** : Graphic User Interface
+
+  단점
+
+  1. 처음 지정된 기능 밖에 사용 불가
+  2. 조작 속도가 CLI에 비해 늦은 경우가 있음
+
+- 특수한 디렉터리
+
+  1. **Home(~)** : 터미널 구동 시 처음 위치하는 디렉터리
+  2. **Working directory(.)** : 작업중인 현재 위치
+  3. **Root directory(/)** : 모든 디렉터리의 시작점
+  4. **상위 디렉터리(..)**
+  5. **하위 디렉터리**
+  6. **절대 경로** : 루트(/)에서부터 시작. 항상 표현방법이 같다.
+  7. **상대 경로** : 현재(.)에서부터 시작. 현재 위치에 따라 다르다.
+
+- 외워야 할 명령어 : pwd, man, ls, cd, clear
+
+- **명령어 구조** : 명령어 [옵션] [인자...]
+
+  - **옵션** : "-"로 시작해서 영문 대소문자로 구성. 명령어의 기능을 구체화. 명령어에 따라 없을 수도 있다. ex) ls-l, ls-a, ls-al, ls-la
+  - **인자** : 명령어의 수행시 대상이 될 파일이나 디렉터리 명령어에 따라 필요 없을 수도 있고 필수일 수도 있다.  ex) cp [인자1] [인자2]
+
+- **명령어**
+
+  - pwd : Print Working Directory. 현재 위치를 알려준다.
+  - man : manual. 명령어 설명서. man[알고싶은 명령어]
+  - ls : list. 디렉터리의 목록을 보여준다.
+    1. 옵션 a : 숨김파일까지 보여줌
+    2. 옵션 l : 상세하게 보여줌
+    3. 옵션 F : 파일인지 디렉터리인지 알려줌
+  - cd : change Directory. 현재 위치를 이동해줌. cd[이동하고 싶은 위치]
+  - clear : 터미널 청소기
+
+
+
+### 3. Django 시작하기
+
+1. 프레임워크를 쓰면 개발 속도가 빠르다.
+2. 개발 현장에선 한 프로젝트에 여러 라이브러리와 프레임워크를 동시에 사용한다.
+
+
+
+- **Django 사용하는 방법**
+  1. python -m venv [가상환경명]
+  2. source [가상환경명]/bin/activate . source [가상환경명]/Script/activate
+  3. pip install django
+
