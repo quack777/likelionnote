@@ -672,3 +672,131 @@ h1,p{
   2. source [가상환경명]/bin/activate . source [가상환경명]/Script/activate
   3. pip install django
 
+
+
+## Django
+
+### 1. MTV패턴
+
+- 복습
+
+  -가상환경
+
+  python -m venv [가상환경명]
+
+  source [가상환경명]/Script/activate
+
+  -django설치
+
+  django-admin startproject [프로젝트 이름]
+
+  python manage.py runserver
+
+- MTV(model, template, view)
+  - Template : 사용자가 보이는 영역, HTML, CSS 템플릿 언어
+  - Model : DataBase(DB)
+  - View : 데이터를 처리하는 곳 MTV중에서 핵심
+
+
+
+### 2. Django 실습
+
+- APP : Django프로젝트를 이루는 작은 단위
+
+- 웹사이트 구동 순서
+  1. 사용자가 서버에 요청
+  2. 서버의 view는 model에게 요청에 필요한 데이터를 받음
+  3. view는 받은 데이터를 적절하게 처리해서  template으로 넘김
+  4. template은 받은 정보를 사용자에게 보여줌
+
+- 복습
+
+  -앱 제작 순서
+
+  1. App을 생성
+  2. Template 제작
+  3. View 제작
+  4. URL연결
+
+- 템플릿 언어 : html에서 파이썬 변수와 문법을 사용하게 해주는 언어
+
+  ex. {%for word in wordDict%} ... {%endfor%}, {{변수명}}
+
+  
+
+### 3. Git 사용법
+
+- github 레파지토리
+  1. 깃허브 들어가서 레파지토리 생성
+  2. vs code 터미널 -> git config --global user.name "깃허브 닉네임"
+  3. git config --global user.email "깃허브 가입 이메일"
+  4. 깃허브 페이지 코드 복사 붙혀넣기
+
+
+
+- echo "# firstproject" >>README.md : README.md이라는 파일을 만들고 firstproject라고 내용을 입력하라는 뜻
+
+- git init  : 현재 디렉토리를 새로운 깃 저장소로 초기화한다는 뜻. 이렇게하면 숨긴파일로 깃이라는 파일이 생김
+
+- git add : (구동과정 : staging area라는 공간에 저장할 파일을 넣어주고 staging area를 통쨰로 저장)
+
+     * git status : git 상태 확인 명령어
+     * git add . : 현재 디렉토리에 있는 모든 파일이 올라감
+        * git add 파일이름 파일이름 : 파일이름, 파일이름이 올라감
+        * gitignore : 올리지 말아야할 파일 -> .gitignore파일 생성 (gitignore.io사이트 접속 django입력 복붙)
+
+- git commit 
+
+  - git log : git에 commit한 내용확인
+  - git commit -m "commit 내용"
+
+- branch
+
+  - git branch -M main : master branch의 이름을 main으로 바꾼다는 뜻 (master이름을 그냥 사용하고 싶으면 안 써도 됨)
+  - git branch "브랜치이름"
+  - git checkout "브랜치 이름"
+  - git status : 현재 위치 확인
+
+  #### 총정리
+
+- ##### 새로 만들때
+
+  - git init
+  - git add
+  - git commit -m "message"
+  - git remote add [remote 이름] [repository 주소]
+  - git push [remote 이름] [branch 이름]
+
+- ##### 코드 수정
+
+  - git add
+  - git commit -m "message"
+  - git push [remote 이름] [branch 이름]
+
+
+
+### 4. Django와 데이터베이스
+
+- 변수나 함수에 f12를 누르면 선언부로 이동이 가능하다.
+- 장고와 데이터베이스
+  - ORM : Object Relation Mapping
+  - models.py
+  - python 객체지향 
+  - class
+
+
+
+### 5. Model 실습
+
+- **makemigrations** : 앱 내의 migration 폴더를 만들어서 models.py의 변경사항 저장
+- **migrate** : migration폴더를 실행시켜 데이터베이스에 적용
+
+
+
+### 6. CRUD-Read
+
+### 7. CRUD-Create
+
+### 8. CRUD-Update
+
+### 9. CRUD-Delete
