@@ -795,8 +795,63 @@ h1,p{
 
 ### 6. CRUD-Read
 
+- 주석처리 단축키 : ctrl + ?
+
 ### 7. CRUD-Create
+
+- CRUD
+  - new: new.html 보여줌
+  - create: 데이터베이스에 저장
 
 ### 8. CRUD-Update
 
+- CRUD
+  - edit: edit.html 보여줌
+  - update: 데이터베이스에 적용
+  - 수정할 데이터의 id값을 받아야함   
+
 ### 9. CRUD-Delete
+
+### 10. Template 상속
+
+- 불필요한 코드를 사용하지 않기 위한! 내가 궁금했던 것 개꿀~!
+
+- 중복되는 코드를 base.html을 사용해 정리한다.
+
+### 11. Static
+
+- 정적 파일 vs 동적파일
+  - 정적파일 : 미리 서버에 저장되어 있는 파일, 서버에 저장되 그대로를 서비스해주는 파일
+    - Static : 개발자가 서버를 개발할 때 미리 넣어놓은 정적파일 (Img, js, css)
+    - media : 사용자가 업로드 할 수 있는 파일
+  - 동적파일 : 서버의 데이터들이 어느정도 가공된다음 보여지는 파일 (상황에 따라 달라질 수 있음)
+
+### 12. Media
+
+![image-20210628224809101](C:\Users\82108\AppData\Roaming\Typora\typora-user-images\image-20210628224809101.png)
+
+![image-20210628224834120](C:\Users\82108\AppData\Roaming\Typora\typora-user-images\image-20210628224834120.png)
+
+
+
+
+
+### 13. Form
+
+- Form : 입력공간
+
+### 14. User 확장과 인증
+
+- 사용자에 따라 페이지에 보여지는게 다름 
+- 장고에서 제공해주는  auth
+- Authentication : 인증
+- ![image-20210628225324218](C:\Users\82108\AppData\Roaming\Typora\typora-user-images\image-20210628225324218.png)
+- 클라이언트의 인증 관리 함수 : authenticate, login, logout
+
+### 15. Paginator
+
+- paginator : 블로그 객체를 잘라서 보내줌
+
+- 페이지 관련 정보도 있음 (/?**page = paginator.어떤페이지**)
+
+  
