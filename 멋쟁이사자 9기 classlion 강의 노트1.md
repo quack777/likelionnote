@@ -401,21 +401,23 @@ h1,p{
 #### 단순 선택자 (타입, 클래스, 아이디, 전체, 속성)
 
 - **타입 선택자(Type Selector)** : 해당 **태그**를 가지는 **모든** 요소에 스타일을 적용
-
 - **아이디 선택자(Id Selector)** : Id로 스타일을 적용 해당 Id 하나에 적용(Id는 단 하나)
   - #main { color: red; }
   - 아이디(Id) : HTML 문서 내에서 동일한 아이디는 존재할 수 없음 다른 요소와 구분되는 점을 만들어줌
 - **클래스 선택자(Class Selector)** : 클래스 이름으로 스타일을 적용 **같은 클래스 이름**이면 **모두** 적용
-  - .main{color : red;}
+  - .main{ color : red; }
   - 클래스(Class) : 비슷한 특징을 갖는 요소를 지정하여 묶을 수 있음 여러 번 사용이 가능
 - **전체 선택자(Universla Selector)** : **모든 요소**에 스타일을 적용 모든 요소에 적용하기 때문에 속도 저하 가능성이 있음
   - *{color : red;}
 - **속성 선택자(Attribute Selector)** : 특정 속성을 소유하는 모든 요소에 스타일을 적용
+  - 선택자[속성명="속성값"]{ color : red; }
   - a[target="_blank"] {color : red;}
 
 #### 복합 선택자
 
-- **자식 선택자(Child Selector)** : **선택자A**의 모든 자식 중 **선택자B**와 일치하는 요소 선택
+![image-20210724151349395](C:\Users\82108\AppData\Roaming\Typora\typora-user-images\image-20210724151349395.png)
+
+- **자식 선택자(Child Selector)** : **선택자A**의 모든 자식 중 **선택자B**와 일치하는 요소 선택                                   (선택자A 중 선택자B선택)
 
   - 선택자A > 선택자B { color: red; }
   - article > p { color : red; }
@@ -425,18 +427,20 @@ h1,p{
   - 선택자A 선택자B { color:  blue; }
   - article p { color : blue; } 
 
-- **pseudo 클래스** : 요소의 특별한 상태를 지정할 때 씀
+- **pseudo 클래스(가상의 클래스)** : 요소의 특별한 상태를 지정할 때 씀
 
-  - 선택자:pseudo-class {
+  - 예시 : :link , :visited, :hover 그 외
 
-    ​	속성: 속성값;
+  - 선택자 : pseudo-class {
 
+    ​	속성 : 속성값;
+  
     }
-    
+  
     - :link :방문하지 않은 링크일 경우
     - :visited :방문한 링크일 경우
     - :hover :요소에 마우스가 올라와 있을 경우 
-    
+  
     
 
 ### 10.값과 단위
@@ -444,10 +448,10 @@ h1,p{
 #### 		숫자값과 백분율
 
 - 1px = 1/96 in (**절대길이**)
-
 - em rem -> **상대적인 길이**
 - **em** : 현재 스타일이 지정된 요소의 font-size기준
 - **rem** : 최상위 요소의 font-size기준 (**rem쓰는 것 권장**)
+- em과 rem을 쓰는 이유 : 웹을 피시와 모바일에서 보고 기기마다 사이즈가 다르니까 상대길이 사용
 - 1em(1rem)의 크기 = 기준 font-size *1em(1rem)
 
 ​			ex) 10em(rem) = 16px * 10 = 160px
@@ -458,17 +462,18 @@ h1,p{
 
   #### 색상
   
-  - **hex code** 
-  - **rgb**
+  - **hex code** : #~
+  - **rgb** : red, blue
   - **hsl**
   
   
 
 ### 11.텍스트와 관련된 프로퍼티
 
-#### 		폰트와 관련된 프로퍼티
+#### 			폰트와 관련된 프로퍼티
 
-- font-size, font-family, font-style, font-weight
+- ex : font-size, font-family, font-style, font-weight
+
 - **font-family** : 'Cute Font', Arial, cursive;
 
 - **font-style** : normal(기본 값), italic(디자인된 폰트에 적용), oblique(기울임 글꼴)
@@ -479,7 +484,7 @@ h1,p{
 
   
 
-  #### 텍스트 정렬관 관련된 속성
+  #### 텍스트 정렬관 관련된 속성 (자기 자신을 기준으로 정렬)
 
 - **text-align** : 텍스트를 좌,우,중앙 정렬함
 
@@ -499,43 +504,83 @@ h1,p{
 
 <img src="C:\Users\82108\Desktop\멋쟁이사자\화면 캡처 2021-01-23 031036.jpg" style="zoom:50%;" />
 
+#### Content와 Border
+
+- 컨텐트 사이즈는 width와 height로 지정
+- border는 border-style, border-width, border-color
+- **border-radius** : px은 반지름의 길이, 타원형 가능 값에 px 두개 집어넣으면 됨
+
+
+
 #### 	padding과 margin
 
-- 마진은 함께 공존하지 않음 -> 마진 상쇄(Margin Collapse)
-- box-sizing : content-box; -> 기본 박스 사이즈
-- box-sizing : border-box;  ->border기준 박스 사이즈
+- 위 아래 다른 요소에서 마진을 적용하면 마진끼리 함께 공존하지 않음
+
+  -> 마진 상쇄(Margin Collapse)  -> 큰 쪽마진을 기준으로 작은 거는 삭제 됨
+
+- **box-sizing : content-box**; -> 기본 박스 사이즈 
+
+  -> width(height) = content size
+
+- **box-sizing : border-box;**  -> border까지 기준 박스 사이즈
+
+  -> width(height) = content size + padding + border
 
 
 
 ### 13.위치와 관련된 프로퍼티[1]
 
-#### 		display
+#### 	HTML 요소
+
+1. block element : 항상 새로운 줄에서 시작 항상 width 100%를 가지고 있음
+
+2. inline element : 필요한 만큼의 너비만 가짐. 즉, 요소의 content크기만큼만 너비를 가짐
+
+   
+
+#### 			display
 
 - **display** : 요소가 보여지는 방식을 지정
 
-- **display : block;**(width 100%) : div, h1~6, p, header, section
+- **display : block;**(width 100%)
+
+  ex. div, h1~6, p, header, section
 
   *width, height, margin, padding 가능
 
-- **display : inline;** : a, span, img
+- **display : inline;**
+
+  ex. a, span, img
 
   *width, height, margin-top, margin-bottom 불가능
 
 - **display : inline-block;** : width, height, margin-top, margin-bottom 가능
 
+- **display: none;** : 해당 요소 출력이 되지 않음
+
   
 
   #### position
 
-- **static** : 기본값, 좌표 프로퍼티를 쓸 수 없음
+- **static** : 기본값! 좌표 프로퍼티를 쓸 수 없음
 
-- **relative** : 상대위치, 기본 위치를 기준으로 좌표를 사용함
+- **relative** : 상대위치. **기본 위치를 기준으로 좌표를 사용**함. 좌표 프로퍼티 사용 가능
 
-- **absolute** : 부모나 조상 중 relative, absolute, fixed가 선언된 곳을 기준으로 좌표 프로퍼티 적용
+  여기에서 기본 위치를 기준으로라는 말은 원래 있어야할 위치를 기준으로 이동한다는 의미
+
+  원래에 block요소처럼 작용
+
+- **absolute** : **부모나 조상 중 relative, absolute, fixed가 선언된 곳을 기준으로 좌표 프로퍼티 적용**
+
+   넓이가 inline요소처럼 보임 -> 이렇게 보인다고 width, heigth 적용 안된다고 생각하지 않기
 
 - **fixed** : 보이는 화면을 기준으로 좌표 프로퍼티를 이용하여 위치를 고정
 
+  스크롤해서 밑으로 내려도 그대로 고정하고 싶을때 사용
+
 - **z-index** : 숫자값이 클수록 전면에 출현
+
+  이미지나 content가 겹칠 때 앞으로 배치하고 싶을때 사용
 
 
 
@@ -674,6 +719,22 @@ h1,p{
 
 
 
+## Python
+
+### 1. Class
+
+​	![화면 캡처 2021-07-17 184510](C:\Users\82108\Desktop\markdown\화면 캡처 2021-07-17 184510.jpg)
+
+- **클래스**(class) : 똑같은 무엇인가를 계속해서 만들어 낼 수 있는 설계 도면(과자 틀)
+- **객체**(object) : 클래스로 만든 피조물(과자 틀을 사용해 만든 과자)를 뜻한다
+- 객채와 인서트스의 차이
+  - 클래스로 만든 객체를 인스턴스라고도 한다. 그렇다면 객체와 인스턴스의 차이는 무엇일까? 이렇게 생각해 보자. a = Cookie() 이렇게 만든 a는 객체이다. 그리고 a 객체는 Cookie의 인스턴스이다. 즉 인스턴스라는 말은 특정 객체(a)가 어떤 클래스(Cookie)의 객체인지를 관계 위주로 설명할 때 사용한다. "a는 인스턴스"보다는 "a는 객체"라는 표현이 어울리며 "a는 Cookie의 객체"보다는 "a는 Cookie의 인스턴스"라는 표현이 훨씬 잘 어울린다.
+- **메서드**(Method) : 클래스 안에 구현된 함수
+- **생성자**(Constructor) : 객체가 생성될 때 자동으로 호출되는 메서드
+- **상속**(Inheritance) : "물려받다"라는 뜻으로, "재산을 상속받다"라고 할 때의 상속과 같은 의미
+  - class 클래스 이름(상속할 클래스 이름)
+- **메서드 오버라이딩**(Overriding, 덮어쓰기) : 부모 클래스(상속한 클래스)에 있는 메서드를 동일한 이름으로 다시 만드는 것
+
 ## Django
 
 ### 1. MTV패턴
@@ -682,33 +743,64 @@ h1,p{
 
   -가상환경
 
-  python -m venv [가상환경명]
+  가상환경 만들기 : python -m venv [가상환경명]
 
-  source [가상환경명]/Script/activate
+  가상환경 실행 : source [가상환경명]/Script/activate
 
-  -django설치
+  django설치 : pip install django
 
-  django-admin startproject [프로젝트 이름]
+  project 만들기 : django-admin startproject [프로젝트 이름]
 
-  python manage.py runserver
+  서버 기동하기 : python manage.py runserver
 
-- MTV(model, template, view)
+- **MTV**(model, template, view)
+  
   - Template : 사용자가 보이는 영역, HTML, CSS 템플릿 언어
   - Model : DataBase(DB)
   - View : 데이터를 처리하는 곳 MTV중에서 핵심
 
 
 
-### 2. Django 실습
+- 코딩 공부할 때 알아야 할 꿀팁
+  - 개발은 혼자 하지 않는다
+  - 보안
+  - 개발자는 반드시 실수를 한다
 
-- APP : Django프로젝트를 이루는 작은 단위
+
+
+### 2. Django 실습[1]
+
+- 실습
+  1. 가상환경 만들기
+  2. 프로젝트 만들기
+  3. 앱 만들기
+  4. 프로젝트/settings.py에서 앱 설치했다고 코드 작성해주기
+     - firstapp.apps.FirstappConfig
+     - 앱이름.apps.앱이름Config
+  5. 앱에 templates폴더 만들고 html 파일 만들기
+  6. view 제작
+  7. url연결 
+     - from firstapp import views
+     - path('',views.wellcome, name="wellcome")
+     - 여기서 '',는 서버를 기동시키고 첫 페이지가 wellcome이라는 뜻
+
+- 에러의 이유
+  1. 오타 !!!
+  2. 저장 안함
+
+- **APP** : Django프로젝트를 이루는 작은 단위
+
+  ![화면 캡처 2021-07-20 175013](C:\Users\82108\Desktop\markdown\화면 캡처 2021-07-20 175013.jpg)
+
+  각각의 서비스 별로 분류한 것
 
 - 웹사이트 구동 순서
+  
   1. 사용자가 서버에 요청
   2. 서버의 view는 model에게 요청에 필요한 데이터를 받음
   3. view는 받은 데이터를 적절하게 처리해서  template으로 넘김
   4. template은 받은 정보를 사용자에게 보여줌
-
+  
 - 복습
 
   -앱 제작 순서
@@ -723,6 +815,8 @@ h1,p{
   ex. {%for word in wordDict%} ... {%endfor%}, {{변수명}}
 
   
+
+### Django 실습[2]
 
 ### 3. Git 사용법
 
@@ -780,7 +874,7 @@ h1,p{
 - 변수나 함수에 f12를 누르면 선언부로 이동이 가능하다.
 - 장고와 데이터베이스
   - ORM : Object Relation Mapping
-  - models.py
+  - **models.py**
   - python 객체지향 
   - class
 
@@ -788,14 +882,49 @@ h1,p{
 
 ### 5. Model 실습
 
+- 실습
+
+  1. 앱생성 : python mange.py startapp [앱이름]
+  2. settings.py -> 앱이 하나 생성됐다고 등록
+  3. 앱에서 models.py -> database 칼럼 작성 class를 통해서
+  4. 작성이 완료되면 python manage.py **makemigrations** -> 테이블을 이렇게 만들거라고 migrations라는 폴더에 저장
+  5. python mange.py **migrate** -> migrations 폴더를 뒤져서 변경사항들을 db.sqlite에 적용을 시킴
+  6. admin 처음 들어갈 때 superuser계정 생성해야함
+  7. 터미널 들어가서 python manage.py createsuperuser -> 계정 생성
+  8. admin.py -> models.py에 앱을 등록했다고 알려줘야함 
+     - from .models import Blog
+     - admin.site.register(Blog)
+
+  
+
 - **makemigrations** : 앱 내의 migration 폴더를 만들어서 models.py의 변경사항 저장
 - **migrate** : migration폴더를 실행시켜 데이터베이스에 적용
+- 상속받은 class Blog(models.Model) -> Model에 id는 이미 상속되어 있음
+
+- runserver한 다음에 /**admin**으로 들어가면 database를 볼 수 있음
 
 
 
 ### 6. CRUD-Read
 
-- 주석처리 단축키 : ctrl + ?
+- 실습
+  1. templates에 html하나 생성
+  2. views.py -> 함수하나 생성
+
+- CRUD (데이터베이스를 crud한다.)
+  - create 생성하다
+  - read 읽다
+  - update 수정하다
+  - delete 삭제하다
+- views.py에 함수가 하나 생성될 때 무조건 urls.py에 path가 하나 추가된다고 생각하기!!!
+
+- 주석처리 단축키 : ctrl + ? 
+
+ 
+
+- **path-converter** : path('<str:id>',detail,name="detail")
+
+
 
 ### 7. CRUD-Create
 
@@ -803,20 +932,26 @@ h1,p{
   - new: new.html 보여줌
   - create: 데이터베이스에 저장
 
+
+
 ### 8. CRUD-Update
 
 - CRUD
   - edit: edit.html 보여줌
   - update: 데이터베이스에 적용
-  - 수정할 데이터의 id값을 받아야함   
+  - **수정할 데이터의 id값을 받아야함**
+  
+  
 
 ### 9. CRUD-Delete
 
 ### 10. Template 상속
 
 - 불필요한 코드를 사용하지 않기 위한! 내가 궁금했던 것 개꿀~!
-
 - 중복되는 코드를 base.html을 사용해 정리한다.
+- urls.py도 상속가능. 앱별로 상속
+
+
 
 ### 11. Static
 
@@ -826,19 +961,29 @@ h1,p{
     - media : 사용자가 업로드 할 수 있는 파일
   - 동적파일 : 서버의 데이터들이 어느정도 가공된다음 보여지는 파일 (상황에 따라 달라질 수 있음)
 
+  
+
+  python manage.py collectstatic -> static 파일들을 한곳에 저장
+
+  
+
 ### 12. Media
 
 ![image-20210628224809101](C:\Users\82108\AppData\Roaming\Typora\typora-user-images\image-20210628224809101.png)
 
 ![image-20210628224834120](C:\Users\82108\AppData\Roaming\Typora\typora-user-images\image-20210628224834120.png)
 
-
+웹 통신 방식은 url이다
 
 
 
 ### 13. Form
 
 - Form : 입력공간
+
+- forms.py
+
+
 
 ### 14. User 확장과 인증
 
@@ -847,6 +992,8 @@ h1,p{
 - Authentication : 인증
 - ![image-20210628225324218](C:\Users\82108\AppData\Roaming\Typora\typora-user-images\image-20210628225324218.png)
 - 클라이언트의 인증 관리 함수 : authenticate, login, logout
+
+
 
 ### 15. Paginator
 
@@ -859,7 +1006,7 @@ h1,p{
 
 ### 16. 배포 사전준비
 
-- 환경변수?
+- **환경변수?**
 
   시스템에 저장되어 있는 변수
 
@@ -871,7 +1018,7 @@ h1,p{
 
   os.environ.get('변수명','기본값') 으로 사용
 
-- requirements?
+- **requirements?**
 
   내 파이썬 (장고) 앱을 실행하기 위해 우선 설치되어야 하는 패키지들
 
@@ -887,15 +1034,15 @@ h1,p{
 
   pip freeze > requirements.txt 로 생성
 
-- IAM ?
+- **IAM ?**
 
   Identity and Access Management 의 줄임말
 
-  IAM에서 계정을 만든 후 해당 계정 로그인 ㅐ정보 (엑세스 키 $ 시크릿 키)를 이용하여 AWS의 API 활용
+  IAM에서 계정을 만든 후 해당 계정 로그인 정보 (엑세스 키 $ 시크릿 키)를 이용하여 AWS의 API 활용
 
   보안을 위해 권한을 최대한 보수적으로 잡음
 
-- S3?
+- **S3?**
 
   Simple Storage Service의 줄임말
 
@@ -904,6 +1051,8 @@ h1,p{
   최초 용량 지정 없이 사용한 만큼만 과금되므로 용량 예측 필요 X
 
   여러 서버에서 동시에 접속 가능 (부하 분산 유리)
+
+ 
 
 ### 17. Heroku 배포하기
 
@@ -992,5 +1141,4 @@ h1,p{
 
 https://www.yalco.kr/08_docker/
 
-### 
-
+​	
