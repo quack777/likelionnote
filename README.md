@@ -1,4 +1,3 @@
-# test.github.io
 # 멋쟁이사자 9기 classlion 강의 노트1
 
 
